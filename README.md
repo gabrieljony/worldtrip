@@ -177,7 +177,8 @@ Configurar provedor Chakra
 No arquivo `_app.tsx`, passe o endereço do theme para o `ChakraProvider`:
 
 ```bash
-
+import { ChakraProvider } from '@chakra-ui/react'
+import { theme } from '../styles/theme'
 
 function App({ Component }) {
   return (
@@ -186,4 +187,23 @@ function App({ Component }) {
     </ChakraProvider>
   )
 }
+```
+
+Swiper
+https://swiperjs.com/react
+
+Instalação
+
+```bash
+npm i swiper
+```
+
+Importe para seu projeto o swiper no arquivo `_app.tsx`
+
+```bash
+// Import Swiper styles
+import 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
+import 'swiper/components/scrollbar/scrollbar.scss';
 ```
