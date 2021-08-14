@@ -32,3 +32,101 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+Crie um aplicativo Next.js
+
+```bash
+npx create-next-app NOME_DO_PROJETO
+```
+
+TypeScript
+
+Como configurar Next.js com TypeScript.
+
+Como usar tipos específicos de Next.js.
+
+Como converter seu aplicativo de blog para TypeScript.
+
+Create tsconfig.json
+
+```bash
+touch tsconfig.json
+```
+
+Siga as instruções para instalar o TypeScript:
+
+```bash
+npm install --save-dev typescript @types/react @types/node
+# or
+yarn add --dev typescript @types/react @types/node
+```
+
+Preencha o arquivo `tsconfig.json` para você. Você pode personalizar este arquivo como desejar. 
+
+O arquivo `next-env.d.ts`, que garante que os tipos Next.js sejam selecionados pelo compilador TypeScript. Você não deve tocar neste arquivo.
+
+Tipos específicos de Next.js
+
+Static Generation and Server-side Rendering
+
+Para os métodos `getStaticProps`, `getStaticPaths` e `getServerSideProps`, você pode usar os tipos `GetStaticProps`, `GetStaticPaths` e `GetServerSideProps` respectivamente, conforme abaixo:
+
+```bash
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
+
+export const getStaticProps: GetStaticProps = async context => {
+  // ...
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  // ...
+}
+
+export const getServerSideProps: GetServerSideProps = async context => {
+  // ...
+}
+```
+
+Rotas de API
+
+A seguir está um exemplo de como usar os tipos integrados para rotas de API:
+
+```bash
+import { NextApiRequest, NextApiResponse } from 'next';
+
+export default (
+    request: NextApiRequest, 
+    response: NextApiResponse) => {
+  // ...
+}
+```
+
+App personalizado
+
+Realize a troca dos formatos dos arquivos de `pages/_app.js` para `pages/_app.tsx` e usar o tipo integrado `AppProps`, assim:
+
+
+```bash
+import { AppProps } from 'next/app'
+
+function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
+}
+
+export default App
+```
+
+Convertendo seu aplicativo
+
+Atualize os seguintes arquivos para TypeScript:
+
+1. `components/date.js`: Atualizar para `date.tsx`
+2. `components/layout.js`: Atualizar para `layout.tsx`
+3. `lib/posts.js`: Atualizar para `posts.ts`
+4. `pages/posts/[id].js`: Atualizar para `[id].tsx`
+5. `pages/index.js`: Atualizar para `index.tsx`
+6. `pages/_app.js`: Atualizar para `_app.tsx`
+7. `pages/api/hello.js`: Atualizar para `hello.ts`
+
+PAra maiores informações para o aplicativo Typescript, segue o link:
+https://nextjs.org/docs/basic-features/typescript
