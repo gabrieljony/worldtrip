@@ -130,3 +130,60 @@ Atualize os seguintes arquivos para TypeScript:
 
 PAra maiores informações para o aplicativo Typescript, segue o link:
 https://nextjs.org/docs/basic-features/typescript
+
+
+chakra
+
+https://chakra-ui.com/docs/getting-started
+
+Instalação
+
+
+```bash
+npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
+# or
+yarn add @chakra-ui/react @emotion/react @emotion/styled framer-motion
+```
+
+Adicionar tema personalizado
+
+Se precisar personalizar o tema do chakra padrão para atender aos seus requisitos de design, você pode estender o tema de `@chakra-ui/react`
+
+Chakra UI fornece uma função `extendTheme` que funde profundamente o tema padrão com suas personalizações.
+
+Crie um arquivo chamado `theme.ts` e adicione seu tema de seu projeto:
+
+```bash
+import { extendTheme } from "@chakra-ui/react"
+
+const colors = {
+  brand: {
+    900: "#1a365d",
+    800: "#153e75",
+    700: "#2a69ac",
+  },
+}
+
+const fonts = {
+  heading: 'Poppins',
+  body: 'Poppins'
+}
+
+export const theme = extendTheme({ colors, fonts })
+```
+
+Configurar provedor Chakra
+
+No arquivo `_app.tsx`, passe o endereço do theme para o `ChakraProvider`:
+
+```bash
+
+
+function App({ Component }) {
+  return (
+    <ChakraProvider theme={theme}>
+      <Component />
+    </ChakraProvider>
+  )
+}
+```

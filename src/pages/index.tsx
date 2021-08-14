@@ -1,11 +1,11 @@
-import Head from 'next/head'
+import { Flex } from '@chakra-ui/react'
+import Header from '../components/Header/indes'
 
 export default function Home() {
   return (
-    <div>
-      <Head>
-        <h1>Olá</h1>
-      </Head>
+    <Flex direction="column">
+      <Header />
+    
 
       <main>
         
@@ -14,6 +14,6 @@ export default function Home() {
       <footer>
         
       </footer>
-    </div>
+    </Flex>
   )
 }
