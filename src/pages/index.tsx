@@ -1,5 +1,5 @@
 import { Flex, Heading } from '@chakra-ui/react'
-import Header from '../components/Header/indes'
+import Header from '../components/Header'
 import Banner from '../components/Banner'
 import Menus from '../components/Menus'
 import Separator from '../components/Separator'
